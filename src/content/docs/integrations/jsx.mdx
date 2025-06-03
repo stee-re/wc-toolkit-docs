@@ -5,20 +5,20 @@ head:
   - tag: meta
     attrs:
       property: og:image
-      content: https://wc-toolkit.com/images/wc-toolkit_jsx.png
+      content: https://stee-re.github.io/wc-toolkit-docs/images/wc-toolkit_jsx.png
   - tag: meta
     attrs:
       property: twitter:image
-      content: https://wc-toolkit.com/images/wc-toolkit_jsx.png
+      content: https://stee-re.github.io/wc-toolkit-docs/images/wc-toolkit_jsx.png
 hero:
-  title: 'JSX Types Generator'
+  title: "JSX Types Generator"
   tagline: Generate JSX types for custom elements / web components
   image:
     alt: A workbench with tools, html, css, javascript, and JSX logo
     file: ../../../assets/wc-toolkit_jsx.png
 ---
 
-import { Aside } from '@astrojs/starlight/components';
+import { Aside } from "@astrojs/starlight/components";
 
 This package is designed to generate [JSX](https://www.typescriptlang.org/docs/handbook/jsx.html) types for your custom elements. These types will generate inline documentation, autocomplete, and type-safe validation for your custom elements in frameworks that use JSX like [React (19+)](https://react.dev/), [Preact](https://preactjs.com/) and [StencilJS](https://stenciljs.com/).
 
@@ -26,9 +26,12 @@ This package is designed to generate [JSX](https://www.typescriptlang.org/docs/h
 
 This allows developers to use your custom elements in their JSX projects with full type support, making it easier to integrate and use your components.
 
-<Aside> If you are using react 18 or below, check out our [react wrappers](https://www.npmjs.com/package/custom-element-react-wrappers). </Aside>
+<Aside>
+  {" "}
+  If you are using react 18 or below, check out our [react wrappers](https://www.npmjs.com/package/custom-element-react-wrappers).{" "}
+</Aside>
 
-Types will be generated for all custom elements defined in your [Custom Elements Manifest](https://custom-elements-manifest.open-wc.org/). 
+Types will be generated for all custom elements defined in your [Custom Elements Manifest](https://custom-elements-manifest.open-wc.org/).
 
 This includes types and documentation for:
 
@@ -123,13 +126,17 @@ declare namespace JSX {
 
 ## Configuration
 
-You can configure the JSX Types Generator using the `JsxTypesOptions` interface. 
+You can configure the JSX Types Generator using the `JsxTypesOptions` interface.
 This allows you to customize how the types are generated, where they are output, and how they interact with your components.
 
 ```ts
 type JsxTypesOptions = {
   /** Used to get a specific path for a given component */
-  componentTypePath?: (name: string, tag?: string, modulePath?: string) => string;
+  componentTypePath?: (
+    name: string,
+    tag?: string,
+    modulePath?: string
+  ) => string;
   /** Name of the file generated */
   fileName?: string;
   /** Path to output directory */
@@ -202,7 +209,10 @@ If you component class does not provide a named export and is the default export
 
 If your components were built using TypeScript, you should define a path to your type declarations to pass that type-safety on to the JSX project.
 
-<Aside> All type paths should be relative to the location specified in the `outdir` option. </Aside>
+<Aside>
+  {" "}
+  All type paths should be relative to the location specified in the `outdir` option.{" "}
+</Aside>
 
 If your types are rolled up into a single type declaration file, you can set the `globalTypePath` option to the location of that file.
 
@@ -220,7 +230,11 @@ If each of the component type definitions are split out by each component, you c
 }
 ```
 
-<Aside> It's important to note that if a type path is not provided, the generator will fall back to the type defined in the Custom Elements Manifest. </Aside>
+<Aside>
+  {" "}
+  It's important to note that if a type path is not provided, the generator will
+  fall back to the type defined in the Custom Elements Manifest.{" "}
+</Aside>
 
 ### Custom Event Type Handling with `overrideCustomEventType`
 
@@ -282,7 +296,12 @@ Example usage:
 />
 ```
 
-<Aside> While this option makes development more flexible, it comes at the cost of type safety. Use it sparingly and consider adding proper types to your components instead whenever possible. </Aside>
+<Aside>
+  {" "}
+  While this option makes development more flexible, it comes at the cost of type
+  safety. Use it sparingly and consider adding proper types to your components instead
+  whenever possible.{" "}
+</Aside>
 
 ### Scoped Elements
 
@@ -320,7 +339,11 @@ declare module "my-app" {
 }
 ```
 
-<Aside> When using `ScopedElements`, you'll lose the detailed hover documentation that would normally be available when using the components. </Aside>
+<Aside>
+  {" "}
+  When using `ScopedElements`, you'll lose the detailed hover documentation that
+  would normally be available when using the components.{" "}
+</Aside>
 
 ### Adding DOM Event Support
 
@@ -385,4 +408,8 @@ When using `includeDefaultDOMEvents: true`, the following event categories are i
 - **Media Events**: `onLoad`, `onError`
 - **Clipboard Events**: `onCopy`, `onCut`, `onPaste`
 
-<Aside> Always include JSDoc comments for your custom events. These comments will appear in editor tooltips, improving the developer experience. </Aside>
+<Aside>
+  {" "}
+  Always include JSDoc comments for your custom events. These comments will appear
+  in editor tooltips, improving the developer experience.{" "}
+</Aside>

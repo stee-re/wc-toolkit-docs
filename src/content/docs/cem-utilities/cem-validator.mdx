@@ -5,24 +5,22 @@ head:
   - tag: meta
     attrs:
       property: og:image
-      content: https://wc-toolkit.com/images/wc-toolkit_cem-validator.png
+      content: https://stee-re.github.io/wc-toolkit-docs/images/wc-toolkit_cem-validator.png
   - tag: meta
     attrs:
       property: twitter:image
-      content: https://wc-toolkit.com/images/wc-toolkit_cem-validator.png
+      content: https://stee-re.github.io/wc-toolkit-docs/images/wc-toolkit_cem-validator.png
 hero:
-  title: 'CEM Validator'
+  title: "CEM Validator"
   tagline: Validate that your project is set up correctly for teams to use your components
   image:
     alt: A workbench with tools, html, css, javascript, and check logos
     file: ../../../assets/wc-toolkit_cem-validator.png
-
 ---
 
 This tool is designed to validate key aspects of your project to ensure accurate documentation and proper integration with tools.
 
 You may not be using all of the features identified in these test scenarios, but they are in place to also raise awareness to features that may help your implementation.
-
 
 ## Installation
 
@@ -108,7 +106,7 @@ type Rules = {
     customElementsProperty?: Severity;
     /** Is the Custom Elements Manifest included in the published package */
     publishedCem?: Severity;
-  }
+  };
   /** Checks if the Custom Elements Manifest is valid */
   manifest?: {
     /** Is the manifest using the latest schema version */
@@ -123,9 +121,10 @@ type Rules = {
     exportTypes?: Severity;
     /** Does the component have a tag name defined */
     tagName?: Severity;
-  }
+  };
 };
 ```
+
 ### Options
 
 - `packageJsonPath`: The path to the `package.json` file. This will look for the `package.json` file in the specified path. If not provided, it will look for the `package.json` file in the current working directory.
@@ -147,27 +146,27 @@ Each of the rules can be configured to be `off`, `warning`, or `error`.
 
 #### `moduleType`
 
-Checks if the `package.json` file has the `type` property set to `module`. 
+Checks if the `package.json` file has the `type` property set to `module`.
 This is important for ensuring that the package is treated as an ES module.
 
 More information about this rule can be found [here](https://nodejs.org/api/packages.html#type).
 
 #### `main`
 
-Checks if the `package.json` file has the `main` property set with a valid file path. 
+Checks if the `package.json` file has the `main` property set with a valid file path.
 
 More information about this rule can be found [here](https://nodejs.org/api/packages.html#main).
 
 #### `module`
 
-Checks if the `package.json` file has the `module` property set with a valid file path. 
+Checks if the `package.json` file has the `module` property set with a valid file path.
 This is important to ensure the package can be imported correctly for projects using ES module syntax.
 
 More information about this rule can be found [here](https://nodejs.org/api/packages.html#module).
 
 #### `types`
 
-Checks if the `package.json` file has the `types` property set with a valid file path. 
+Checks if the `package.json` file has the `types` property set with a valid file path.
 This is important for ensuring that the types can be appropriately referenced.
 
 More information about this rule can be found [here](https://nodejs.org/api/packages.html#community-conditions-definitions).
@@ -180,7 +179,7 @@ More information about this rule can be found [here](https://nodejs.org/api/pack
 
 #### `customElementsProperty`
 
-Checks if the `package.json` file has the `customElements` property configured. 
+Checks if the `package.json` file has the `customElements` property configured.
 This makes it easier for tools to find the manifest.
 
 More information about this rule can be found [here](https://github.com/webcomponents/custom-elements-manifest?tab=readme-ov-file#referencing-manifests-from-npm-packages).
@@ -197,21 +196,21 @@ More information about this rule can be found [here](https://docs.npmjs.com/cli/
 
 #### `schemaVersion`
 
-Checks if the `custom-elements.json` file has the `schemaVersion` property set to the latest version. 
+Checks if the `custom-elements.json` file has the `schemaVersion` property set to the latest version.
 This is important for ensuring that the manifest is using the latest schema version.
 
 More information about this rule can be found [here](https://github.com/webcomponents/custom-elements-manifest?tab=readme-ov-file#schema-versioning).
 
 #### `modulePath`
 
-Checks if the `custom-elements.json` file has the path to the file where the component logic exists. 
+Checks if the `custom-elements.json` file has the path to the file where the component logic exists.
 This is important for ensuring that tools can locate and import your components correctly.
 
 For help updating this, check out the [Module Path Resolver package](/documentation/module-path-resolver/).
 
 #### `definitionPath`
 
-Checks if the `custom-elements.json` file has the path to the file where the component is defined (`customElements.define(...)`). 
+Checks if the `custom-elements.json` file has the path to the file where the component is defined (`customElements.define(...)`).
 This is important for ensuring that tools can locate and import the component definition correctly.
 
 For help updating this, check out the [Module Path Resolver package](/documentation/module-path-resolver/).

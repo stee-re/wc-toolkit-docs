@@ -5,13 +5,13 @@ head:
   - tag: meta
     attrs:
       property: og:image
-      content: https://wc-toolkit.com/images/wc-toolkit_ts.png
+      content: https://stee-re.github.io/wc-toolkit-docs/images/wc-toolkit_ts.png
   - tag: meta
     attrs:
       property: twitter:image
-      content: https://wc-toolkit.com/images/wc-toolkit_ts.png
+      content: https://stee-re.github.io/wc-toolkit-docs/images/wc-toolkit_ts.png
 hero:
-  title: 'Type Parser'
+  title: "Type Parser"
   tagline: Get access to your API's TypeScript values
   image:
     alt: A workbench with tools, html, css, javascript, and JSDoc logos
@@ -20,7 +20,7 @@ hero:
 
 Using type aliases to define the types for your component’s APIs, can be helpful for keeping your code clean and organized as well as making your types reusable.
 
-The down-side is that it can be difficult to integrate with other tooling or communicate in documentation what the available options are. 
+The down-side is that it can be difficult to integrate with other tooling or communicate in documentation what the available options are.
 This plugin parses the types so they available in a more usable format.
 
 ## Installation
@@ -36,7 +36,7 @@ Using type aliases to define the types for your component's APIs, can be helpful
 ```ts
 // my-component.ts
 
-type Target = '_blank' | '_self' | '_parent' | '_top';
+type Target = "_blank" | "_self" | "_parent" | "_top";
 
 class MyLink extends HTMLElement {
   target?: Target;
@@ -96,7 +96,7 @@ It doesn't overwrite the existing property, but will create a new property with 
 
 ## Complex types
 
-The plugin will also parse complex types, such as union, intersection, and generic types. 
+The plugin will also parse complex types, such as union, intersection, and generic types.
 It will also supports Enums and TypeScript's utility types.
 
 ```ts
@@ -112,7 +112,7 @@ enum DirectionEnum {
   Down,
   Left,
   Right,
-}; // 0 | 1 | 2 | 3
+} // 0 | 1 | 2 | 3
 type DirectionOptions = keyof typeof DirectionEnum; // "Up" | "Down" | "Left" | "Right"
 ```
 
@@ -136,14 +136,13 @@ type Options = {
   debug?: boolean;
   /** Prevents plugin from executing when true */
   skip?: boolean;
-}
+};
 ```
 
 ### Property Name
 
-The default property name that the values are assigned to is `parsedType`. 
+The default property name that the values are assigned to is `parsedType`.
 If you want to change that, you can do so by passing the `propertyName` option.
-
 
 ```js
 // custom-elements-manifest.config.js
@@ -174,4 +173,3 @@ Once that has been updated, the parsed type will appear under the new property n
 ```
 
 > **NOTE:** As you can see in the example above, the structure will follow the same pattern as the `type` object in that your custom name will have a property called `text`.
-

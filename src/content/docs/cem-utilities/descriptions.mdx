@@ -1,20 +1,20 @@
 ---
 title: Component Descriptions
-description: Functions for getting formatted descriptions from the Custom Elements Manifest 
+description: Functions for getting formatted descriptions from the Custom Elements Manifest
 head:
   - tag: meta
     attrs:
       property: og:image
-      content: https://wc-toolkit.com/images/wc-toolkit_json.png
+      content: https://stee-re.github.io/wc-toolkit-docs/images/wc-toolkit_json.png
   - tag: meta
     attrs:
       property: twitter:image
-      content: https://wc-toolkit.com/images/wc-toolkit_json.png
+      content: https://stee-re.github.io/wc-toolkit-docs/images/wc-toolkit_json.png
 ---
 
-import { Aside } from '@astrojs/starlight/components';
+import { Aside } from "@astrojs/starlight/components";
 
-Getting a description for a custom element can be a bit tricky. 
+Getting a description for a custom element can be a bit tricky.
 The content is typically all there, but it requires mapping the properties to be in a useable format.
 These utilities are designed to simplify those repetitive tasks by providing a set of functions for generating descriptions nicely formatted descriptions from the Custom Elements Manifest (CEM).
 
@@ -36,9 +36,13 @@ const component = getComponentByTagName(manifest, 'my-alert');
 const description = getComponentDetailsTemplate(component);
 ```
 
-<Aside>Many of these methods use the [Custom CEM Types](/cem-utilities/types), so please take a look at those documentation for more detailed information about how to use them.</Aside>
+<Aside>
+  Many of these methods use the [Custom CEM Types](/cem-utilities/types), so
+  please take a look at those documentation for more detailed information about
+  how to use them.
+</Aside>
 
-The result will return a markdown formatted string with the details of the component's APIs. 
+The result will return a markdown formatted string with the details of the component's APIs.
 This works well because most code editors and documentation tools support markdown.
 
 ```markdown
@@ -49,9 +53,9 @@ A description about what an alert is and how to use it
 Component attributes and properties that can be applied to this element.
 
 - `open`: Indicates whether or not the alert is open. You can toggle this attribute to show and hide the alert, or you can
-use the `show()`, `hide()`, and `toggle()` methods. 
-- `dismissible`: Enables a close button that allows the user to dismiss the alert. 
-- `variant`: The alert's theme variant. 
+  use the `show()`, `hide()`, and `toggle()` methods.
+- `dismissible`: Enables a close button that allows the user to dismiss the alert.
+- `variant`: The alert's theme variant.
 - `open-delay` / `openDelay`: The amount of time in milliseconds before the alert is shown.
 
 ### Events
@@ -194,15 +198,17 @@ The `ComponentApiOptions` object has the following properties is a generic so yo
 const options: ComponentDescriptionOptions = {
   apis: {
     slots: {
-      heading: 'Slots',
-      description: 'Areas where markup can be added to the component.',
+      heading: "Slots",
+      description: "Areas where markup can be added to the component.",
       template: (slots) => {
-        return slots.map((slot) => {
-          return `- \`${slot.name}\`: ${slot.description}`;
-        }).join('\n');
-      }
-    }
-  }
+        return slots
+          .map((slot) => {
+            return `- \`${slot.name}\`: ${slot.description}`;
+          })
+          .join("\n");
+      },
+    },
+  },
 };
 ```
 
@@ -344,7 +350,7 @@ Thees are the default values applies to the `ComponentDescriptionOptions` object
 
 ## Main Component Description
 
-The function for getting the component's description is `getMainComponentDescription`. 
+The function for getting the component's description is `getMainComponentDescription`.
 This function will return the main description of the component as well as any relevant deprecation information.
 If it's deprecated, it will include `@deprecated` JSDoc tag as well as the the deprecation message.
 
@@ -395,7 +401,7 @@ export type AttributeAndProperty = {
   /** Whether the attribute or property is readonly */
   readonly?: boolean;
 };
-``` 
+```
 
 ## Property-Only Fields
 

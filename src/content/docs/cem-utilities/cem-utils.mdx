@@ -1,23 +1,26 @@
 ---
 title: CEM Utility Functions
-description: A set of tools for retrieving and transforming data from the Custom Elements Manifest 
+description: A set of tools for retrieving and transforming data from the Custom Elements Manifest
 head:
   - tag: meta
     attrs:
       property: og:image
-      content: https://wc-toolkit.com/images/wc-toolkit_json.png
+      content: https://stee-re.github.io/wc-toolkit-docs/images/wc-toolkit_json.png
   - tag: meta
     attrs:
       property: twitter:image
-      content: https://wc-toolkit.com/images/wc-toolkit_json.png
-
+      content: https://stee-re.github.io/wc-toolkit-docs/images/wc-toolkit_json.png
 ---
 
-import { Aside } from '@astrojs/starlight/components';
+import { Aside } from "@astrojs/starlight/components";
 
 The following is a list of utility functions that are designed to help you work with the Custom Elements Manifest (CEM) and make it easier to use the documentation for your web components.
 
-<Aside>Many of these methods use the [Custom CEM Types](/cem-utilities/types), so please take a look at those documentation for more detailed information about how to use them.</Aside>
+<Aside>
+  Many of these methods use the [Custom CEM Types](/cem-utilities/types), so
+  please take a look at those documentation for more detailed information about
+  how to use them.
+</Aside>
 
 ## Installation
 
@@ -44,22 +47,27 @@ const components = getAllComponents<MyCustomComponentType>(manifest);
 
 ## Component Type
 
-All of the component functions return a `Component` object. 
-This is a custom type that extends the standard CEM `CustomElement` type to include additional properties. 
+All of the component functions return a `Component` object.
+This is a custom type that extends the standard CEM `CustomElement` type to include additional properties.
 These properties are located elsewhere in the CEM, but we have added them to the `Component` object for your convenience.
 
 ```ts
-type Component = cem.CustomElement & Record<string, unknown> & {
-  /** Path to the component's source module */
-  modulePath?: string;
-  /** Path to the component's definition */
-  definitionPath?: string;
-  /** Path to the component's type definition (if different than the source module) */
-  typeDefinitionPath?: string;
-}
+type Component = cem.CustomElement &
+  Record<string, unknown> & {
+    /** Path to the component's source module */
+    modulePath?: string;
+    /** Path to the component's definition */
+    definitionPath?: string;
+    /** Path to the component's type definition (if different than the source module) */
+    typeDefinitionPath?: string;
+  };
 ```
 
-<Aside>If you're not already, it's highly recommended that you use a tool like the [Module Path Resolver](/documentation/module-path-resolver/) to ensure this content is accurate in your Custom Elements Manifest.</Aside>
+<Aside>
+  If you're not already, it's highly recommended that you use a tool like the
+  [Module Path Resolver](/documentation/module-path-resolver/) to ensure this
+  content is accurate in your Custom Elements Manifest.
+</Aside>
 
 ## Get Component By Tag
 
@@ -75,7 +83,10 @@ const component = getComponentByTag(manifest, 'my-component');
 This is a generic function, so if you have defined custom fields that you would like to strongly type, you can pass in a type parameter.
 
 ```ts
-const component = getComponentByTag<MyCustomComponentType>(manifest, 'my-component');
+const component = getComponentByTag<MyCustomComponentType>(
+  manifest,
+  "my-component"
+);
 ```
 
 ## Get Component By Class Name
@@ -92,7 +103,10 @@ const component = getComponentByClassName(manifest, 'MyComponent');
 This is a generic function, so if you have defined custom fields that you would like to strongly type, you can pass in a type parameter.
 
 ```ts
-const component = getComponentByClassName<MyCustomComponentType>(manifest, 'MyComponent');
+const component = getComponentByClassName<MyCustomComponentType>(
+  manifest,
+  "MyComponent"
+);
 ```
 
 ## Get Component Public Properties
@@ -110,7 +124,8 @@ const properties = getComponentPublicProperties(component);
 This is a generic function, so if you have defined custom fields that you would like to strongly type, you can pass in a type parameter.
 
 ```ts
-const properties = getComponentPublicProperties<MyCustomPropertyType>(component);
+const properties =
+  getComponentPublicProperties<MyCustomPropertyType>(component);
 ```
 
 ## Get Component Public Methods
@@ -195,7 +210,7 @@ This function updates the type value to be more complete and accurate. For examp
 
 ```ts
 /**
- * 
+ *
  * @tag my-component
  * @event {MyEventDetailType} my-event - This is a custom event
  */
@@ -204,7 +219,7 @@ class MyComponent extends HTMLElement {
 }
 ```
 
-This function will update the type to include the `CustomEvent` type and the type from the JSDoc. 
+This function will update the type to include the `CustomEvent` type and the type from the JSDoc.
 The `type.text` property will be updated `CustomEvent<MyEventDetailType>`.
 
 If the event does not have a custom detail type, the `type.text` property will be updated to `CustomEvent`.
@@ -213,7 +228,7 @@ If the event is emitting a native DOM event like one from the list below, the `t
 
 ```ts
 /**
- * 
+ *
  * @tag my-component
  * @event {InputEvent} input - Documenting input event
  */
@@ -270,7 +285,9 @@ type EventOptions = {
 If you have a custom event detail type, you use the `customEventDetailTypePropName` property in the functions `options` parameter to specify the property name where the custom detail type is stored.
 
 ```ts
-const events = getComponentEventsWithType(component, { customEventDetailTypePropName: 'parsedType' });
+const events = getComponentEventsWithType(component, {
+  customEventDetailTypePropName: "parsedType",
+});
 ```
 
 #### Override Custom Event Type
@@ -278,12 +295,14 @@ const events = getComponentEventsWithType(component, { customEventDetailTypeProp
 If you want to override the event type from `CustomEvent` to the type specified in the event type in the CEM, you can use the `overrideCustomEventType` property in the functions `options` parameter.
 
 ```ts
-const events = getComponentEventsWithType(component, { overrideCustomEventType: true });
+const events = getComponentEventsWithType(component, {
+  overrideCustomEventType: true,
+});
 ```
 
 ```ts
 /**
- * 
+ *
  * @tag my-component
  * @event {MyComponentEvent} my-event - Documenting input event
  */
@@ -311,7 +330,10 @@ const customEventDetailTypes = getCustomEventDetailTypes(component);
 A list of excluded types can also be passed in as a parameter.
 
 ```ts
-const customEventDetailTypes = getCustomEventDetailTypes(component, ['Type1', 'Type2']);
+const customEventDetailTypes = getCustomEventDetailTypes(component, [
+  "Type1",
+  "Type2",
+]);
 ```
 
 ## Get All Mixins

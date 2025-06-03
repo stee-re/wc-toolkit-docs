@@ -5,20 +5,20 @@ head:
   - tag: meta
     attrs:
       property: og:image
-      content: https://wc-toolkit.com/images/wc-toolkit_module-path-resolver.png
+      content: https://stee-re.github.io/wc-toolkit-docs/images/wc-toolkit_module-path-resolver.png
   - tag: meta
     attrs:
       property: twitter:image
-      content: https://wc-toolkit.com/images/wc-toolkit_module-path-resolver.png
+      content: https://stee-re.github.io/wc-toolkit-docs/images/wc-toolkit_module-path-resolver.png
 hero:
-  title: 'Module Path Resolver'
+  title: "Module Path Resolver"
   tagline: Update module paths in your Custom Elements Manifest to the output target
   image:
     alt: A workbench with tools, html, css, javascript, and map icons
     file: ../../../assets/wc-toolkit_module-path-resolver.png
 ---
 
-import { Aside } from '@astrojs/starlight/components';
+import { Aside } from "@astrojs/starlight/components";
 
 This tool is designed to update module paths in your Custom Elements Manifest to the output target.
 
@@ -118,7 +118,10 @@ type ModulePathResolverOptions = {
 
 This is the path to the component's final output location.
 
-<Aside>If you are not transpiling or building your components and your source file is in the same place as the final output, you probably don't need to add this.</Aside>
+<Aside>
+  If you are not transpiling or building your components and your source file is
+  in the same place as the final output, you probably don't need to add this.
+</Aside>
 
 ```ts
 {
@@ -149,7 +152,11 @@ This is the path to the component's final output location.
 
 This is the path to where the component is defined either through the traditional method (`customElements.define('my-component', MyComponent)`), a decorator, or some other custom approach.
 
-<Aside>Your analyzer may already be doing this for you. You can confirm this by searching your manifest for any `exports` with `"kind": "custom-element-definition"`.</Aside>
+<Aside>
+  Your analyzer may already be doing this for you. You can confirm this by
+  searching your manifest for any `exports` with `"kind":
+  "custom-element-definition"`.
+</Aside>
 
 ```ts
 {
@@ -161,7 +168,10 @@ This is the path to where the component is defined either through the traditiona
 
 This sets a _non-standard_ property next to the module path so tools can easily reference them.
 
-<Aside>This is only needed of the types are not co-located with the module or if it follows a different naming convention from the component module.</Aside>
+<Aside>
+  This is only needed of the types are not co-located with the module or if it
+  follows a different naming convention from the component module.
+</Aside>
 
 ```ts
 {

@@ -5,20 +5,20 @@ head:
   - tag: meta
     attrs:
       property: og:image
-      content: https://wc-toolkit.com/images/wc-toolkit_lazy-loader.png
+      content: https://stee-re.github.io/wc-toolkit-docs/images/wc-toolkit_lazy-loader.png
   - tag: meta
     attrs:
       property: twitter:image
-      content: https://wc-toolkit.com/images/wc-toolkit_lazy-loader.png
+      content: https://stee-re.github.io/wc-toolkit-docs/images/wc-toolkit_lazy-loader.png
 hero:
-  title: 'Lazy Loader'
+  title: "Lazy Loader"
   tagline: Create a single entry point to lazy-load your web components as needed!
   image:
     alt: A workbench with tools, html, css, javascript, and download logo
     file: ../../../assets/wc-toolkit_lazy-loader.png
 ---
 
-import { Aside } from '@astrojs/starlight/components';
+import { Aside } from "@astrojs/starlight/components";
 
 Create a single entry point to lazy-load your custom elements/web components as needed!
 
@@ -103,7 +103,10 @@ import "my-project/loader.js";
 ```
 
 <div class="center">
-  <a href="https://stackblitz.com/edit/vitejs-vite-rtmxxnnn?file=README.md" target="_blank">
+  <a
+    href="https://stackblitz.com/edit/vitejs-vite-rtmxxnnn?file=README.md"
+    target="_blank"
+  >
     <img
       alt="Open in StackBlitz"
       src="https://developer.stackblitz.com/img/open_in_stackblitz.svg"
@@ -150,11 +153,11 @@ type LazyLoaderOptions = {
 
 ## Import Path Template
 
-This option is _required_ because it tells the loader where to find you component's module to load from. 
-This should reference the path where you component is defined in the browser (using `customElements.define()` or some other mechanism). 
+This option is _required_ because it tells the loader where to find you component's module to load from.
+This should reference the path where you component is defined in the browser (using `customElements.define()` or some other mechanism).
 This path can also reference a resource outside of the project like a CDN.
 
-Remember that this path is relative to the location of this file. 
+Remember that this path is relative to the location of this file.
 For example, if this file is generated at the root of your project and the component definitions are in the `dist/components` directory could reference them like this:
 
 ```ts
@@ -175,7 +178,7 @@ This would generate imports for each of the components like:
 
 ## Debugging
 
-If you set the `debug` option to true, this will add additional logging during the loading process to help you identify any issues that are happening during the loading process. 
+If you set the `debug` option to true, this will add additional logging during the loading process to help you identify any issues that are happening during the loading process.
 Additional logs include:
 
 - when a tag name is already registered
@@ -185,7 +188,7 @@ Additional logs include:
 
 ## Adding Additional Components
 
-If you are using additional components in your project that are not included in your Custom Elements Manifest (ie - third-party components), you can add them to your loader using the `additionalComponents` option. 
+If you are using additional components in your project that are not included in your Custom Elements Manifest (ie - third-party components), you can add them to your loader using the `additionalComponents` option.
 Here is an example that is importing components from [Shoelace](https://shoelace.style/) that are also being used in my project.
 
 ```ts
@@ -223,7 +226,7 @@ type ComponentConfig = {
 
 ## Adding Components
 
-This option allows you to add additional custom elements to watch for that may not have been included in the original build of the loader. 
+This option allows you to add additional custom elements to watch for that may not have been included in the original build of the loader.
 This is similar to the `additionalComponents` option, but it adds them at runtime.
 
 ## Setting the Root Element
@@ -242,7 +245,7 @@ There may be instances where you want certain components loaded as soon as possi
 
 ## Dependencies
 
-Dependencies are components that are used within other components. 
+Dependencies are components that are used within other components.
 They are identified in the `dependencies` property in the final output.
 
 These are used to help clean up the component list once they have been loaded.
@@ -256,20 +259,27 @@ If you are using a custom method to identify the dependencies, you can use the `
   getDependencies: (component) => {
     // replace this with your own logic
     return component.myDependencies.map((dep) => dep.tagName);
-  }
+  };
 }
 ```
 
-<Aside> This is not required, but it will help the loader to clean up the component list once they have been loaded. </Aside>
+<Aside>
+  {" "}
+  This is not required, but it will help the loader to clean up the component list
+  once they have been loaded.{" "}
+</Aside>
 
 ## Scoping Components
 
-If you are using custom tag names with either a prefix or suffix to prevent tag name collisions, you can configure the lazy-loader watch for your scoped tags. 
+If you are using custom tag names with either a prefix or suffix to prevent tag name collisions, you can configure the lazy-loader watch for your scoped tags.
 Both the build and runtime configurations accept `prefix` and `suffix` options to update the component list with your specified tag names.
 
 For example, setting the `prefix` option to `prefix_` will update the tag list so the loader will watch for `prefix_my-element`.
 
-<Aside>This will not handle the component scoping for you, but update the loader to look for your scoped components.</Aside>
+<Aside>
+  This will not handle the component scoping for you, but update the loader to
+  look for your scoped components.
+</Aside>
 
 ## Reduced FOUC
 
@@ -324,4 +334,8 @@ type RuntimeConfiguration = {
 };
 ```
 
-<Aside> The `updateConfig` function is async, so you can `await` it if you want to ensure load order. </Aside>
+<Aside>
+  {" "}
+  The `updateConfig` function is async, so you can `await` it if you want to ensure
+  load order.{" "}
+</Aside>

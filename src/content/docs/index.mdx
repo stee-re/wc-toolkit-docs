@@ -6,11 +6,11 @@ head:
   - tag: meta
     attrs:
       property: og:image
-      content: https://wc-toolkit.com/images/wc-toolkit_wc.png
+      content: https://stee-re.github.io/wc-toolkit-docs/images/wc-toolkit_wc.png
   - tag: meta
     attrs:
       property: twitter:image
-      content: https://wc-toolkit.com/images/wc-toolkit_wc.png
+      content: https://stee-re.github.io/wc-toolkit-docs/images/wc-toolkit_wc.png
 hero:
   tagline: Tools to help you build web components teams love to use!
   image:
@@ -21,21 +21,24 @@ hero:
       icon: right-arrow
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Card, CardGrid } from "@astrojs/starlight/components";
 
 ## Some of our tools...
 
 <CardGrid stagger>
-	<Card title="CEM Utilities" icon="setting">
-		Retrieve and transform data from the Custom Elements Manifest for your own tools
-	</Card>
-	<Card title="CEM Inheritance" icon="down-arrow">
-    Inherit content (including class members, attributes, CSS parts, CSS variables, slots, and events) from parent classes in the Custom Elements Manifest
-	</Card>
-	<Card title="Custom JSDoc Tags" icon="seti:javascript">
-		Translates custom JSDoc tags to the Custom Elements Manifest
-	</Card>
-	<Card title="Type Parser" icon="seti:typescript">
-		Parse TypeScript types and add them to the Custom Elements Manifest
-	</Card>
+  <Card title="CEM Utilities" icon="setting">
+    Retrieve and transform data from the Custom Elements Manifest for your own
+    tools
+  </Card>
+  <Card title="CEM Inheritance" icon="down-arrow">
+    Inherit content (including class members, attributes, CSS parts, CSS
+    variables, slots, and events) from parent classes in the Custom Elements
+    Manifest
+  </Card>
+  <Card title="Custom JSDoc Tags" icon="seti:javascript">
+    Translates custom JSDoc tags to the Custom Elements Manifest
+  </Card>
+  <Card title="Type Parser" icon="seti:typescript">
+    Parse TypeScript types and add them to the Custom Elements Manifest
+  </Card>
 </CardGrid>

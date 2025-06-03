@@ -5,20 +5,20 @@ head:
   - tag: meta
     attrs:
       property: og:image
-      content: https://wc-toolkit.com/images/wc-toolkit_storybook.png
+      content: https://stee-re.github.io/wc-toolkit-docs/images/wc-toolkit_storybook.png
   - tag: meta
     attrs:
       property: twitter:image
-      content: https://wc-toolkit.com/images/wc-toolkit_storybook.png
+      content: https://stee-re.github.io/wc-toolkit-docs/images/wc-toolkit_storybook.png
 hero:
-  title: 'Storybook Helpers'
+  title: "Storybook Helpers"
   tagline: Helpers designed to make integrating web components with Storybook easier
   image:
     alt: A workbench with tools, html, css, javascript, and Storybook logo
     file: ../../../assets/wc-toolkit_storybook.png
 ---
 
-import { Aside } from '@astrojs/starlight/components';
+import { Aside } from "@astrojs/starlight/components";
 
 These helpers are designed to make integrating Web Components with Storybook easier.
 
@@ -40,7 +40,7 @@ There are a number of things that this helper library does to provide developers
 
 ## Before You Install
 
-1. If you're not already, you will need to generate a [Custom Elements Manifest](https://dev.to/stuffbreaker/you-should-be-shipping-a-manifest-with-your-web-components-2da0) for your project. 
+1. If you're not already, you will need to generate a [Custom Elements Manifest](https://dev.to/stuffbreaker/you-should-be-shipping-a-manifest-with-your-web-components-2da0) for your project.
 
 2. If you don't already have it installed, follow the installation steps in the [Storybook docs](https://storybook.js.org/docs/web-components/get-started/install) for web components
 
@@ -91,7 +91,7 @@ setStorybookHelpersConfig(options);
 
 ## Setup
 
-Import the storybook helpers into your story and get the appropriate helpers by passing your element's tag name into the Storybook helper function. 
+Import the storybook helpers into your story and get the appropriate helpers by passing your element's tag name into the Storybook helper function.
 the function will return the helper data you can assign to the Storybook `meta` object.
 
 ```ts
@@ -117,6 +117,7 @@ export default meta;
 ```
 
 The function returns the following:
+
 - `events`: an array of events that will be captured in the actions tab
 - `args`: this provides the default values for the component `args`
 - `argTypes`: an object tha configures the controls for the component based on the data from the Custom Elements Manifest
@@ -266,13 +267,13 @@ If you are not seeing the events show up in your actions tab, it may be one of t
 
 ```ts
 // preview.js
-import { withActions } from '@storybook/addon-actions/decorator';
+import { withActions } from "@storybook/addon-actions/decorator";
 
 const preview: Preview = {
   parameters: {
     controls: {
       expanded: true,
-      sort: 'alpha'
+      sort: "alpha",
     },
   },
   decorators: [withActions],
@@ -288,15 +289,16 @@ Templates take 2 arguments - story arguments and slot data. You can use the cont
 ```ts
 // my-element.stories.ts
 export const SlottedContent: Story = {
-  render: (args) => template(
-    args,
-    html`
-      <span slot="label">My Select</span>
-      <my-option>Option 1</my-option>
-      <my-option>Option 2</my-option>
-      <my-option>Option 3</my-option>
-    `
-  ),
+  render: (args) =>
+    template(
+      args,
+      html`
+        <span slot="label">My Select</span>
+        <my-option>Option 1</my-option>
+        <my-option>Option 2</my-option>
+        <my-option>Option 3</my-option>
+      `
+    ),
   args: {
     docsHint: "Some other value than the default",
   },
@@ -311,19 +313,19 @@ Component templates can be interpolated into a story's template with additional 
 // my-element.stories.ts
 export const WithParentFormElement: Story = {
   render: (args) => html`
-  <form>
-    ${template(
-      args,
-      html`
-        <span slot="label">My Select</span>
-        <my-option>Option 1</my-option>
-        <my-option>Option 2</my-option>
-        <my-option>Option 3</my-option>
-      `
-    )}
-    <button>Submit</button>
-  </form>
-`,
+    <form>
+      ${template(
+        args,
+        html`
+          <span slot="label">My Select</span>
+          <my-option>Option 1</my-option>
+          <my-option>Option 2</my-option>
+          <my-option>Option 3</my-option>
+        `
+      )}
+      <button>Submit</button>
+    </form>
+  `,
   args: {
     docsHint: "Some other value than the default",
   },
@@ -356,7 +358,7 @@ export const WithSomeCustomLogic: Story = {
   args: {
     docsHint: "Some other value than the default",
   },
-}
+};
 ```
 
 ### Using Slot Controls
@@ -367,8 +369,8 @@ If you are using the `template`, using slots form the controls panel is fairly s
 
 ### Using CSS Shadow Parts and States Controls
 
-Like the slot controls, the `template` makes working with CSS Shadow Parts and custom CSS States easy. 
-The template is pre-configured with the appropriate code for styling to the component's parts and states. 
+Like the slot controls, the `template` makes working with CSS Shadow Parts and custom CSS States easy.
+The template is pre-configured with the appropriate code for styling to the component's parts and states.
 You can simply apply the styles directly to the control input.
 
 ![screenshot of storybook control panel with a select input expanded displaying options](../../../assets/storybook/css_parts.png)
@@ -423,8 +425,8 @@ setStorybookHelpersConfig({ hideArgRef: true });
 
 ### Custom Types using `typeRef`
 
-It is common for teams to parse or create custom types and add them to the Custom Elements Manifest to use for other tools (if you're not already, [Type Parser plugin](/documentation/type-parser)) can help with this. 
-The helpers can be configured to use those types instead of the default types in your manifest using the `typeRef`. 
+It is common for teams to parse or create custom types and add them to the Custom Elements Manifest to use for other tools (if you're not already, [Type Parser plugin](/documentation/type-parser)) can help with this.
+The helpers can be configured to use those types instead of the default types in your manifest using the `typeRef`.
 If no custom type is found, it will fallback to the default type.
 
 ```ts
@@ -448,13 +450,19 @@ setStorybookHelpersConfig({ renderDefaultValues: true });
 ```
 
 ### Category Order
-The order of the component's API categories in the controls panel can be configured using the `categoryOrder` option. 
+
+The order of the component's API categories in the controls panel can be configured using the `categoryOrder` option.
 The order is defined by the array of category names.
 
-<Aside>If a category is not included in the array, that section will not be included in the controls.</Aside>
+<Aside>
+  If a category is not included in the array, that section will not be included
+  in the controls.
+</Aside>
 
 ```ts
-setStorybookHelpersConfig({ categoryOrder: ["cssProps", "cssStates", "attributes"] });
+setStorybookHelpersConfig({
+  categoryOrder: ["cssProps", "cssStates", "attributes"],
+});
 ```
 
 ## Story Configuration

@@ -1,15 +1,15 @@
 ---
 title: String Utilities
-description: A set of tools for retrieving and transforming data from the Custom Elements Manifest 
+description: A set of tools for retrieving and transforming data from the Custom Elements Manifest
 head:
   - tag: meta
     attrs:
       property: og:image
-      content: https://wc-toolkit.com/images/wc-toolkit_json.png
+      content: https://stee-re.github.io/wc-toolkit-docs/images/wc-toolkit_json.png
   - tag: meta
     attrs:
       property: twitter:image
-      content: https://wc-toolkit.com/images/wc-toolkit_json.png
+      content: https://stee-re.github.io/wc-toolkit-docs/images/wc-toolkit_json.png
 ---
 
 These are a collection of simple string manipulation utilities commonly used when working with data from the CEM.
@@ -25,7 +25,7 @@ npm install -D @wc-toolkit/cem-utilities
 The `removeQuotes` function removes quotes from a string.
 
 ```ts
-import { removeQuotes } from '@wc-toolkit/cem-utilities';
+import { removeQuotes } from "@wc-toolkit/cem-utilities";
 
 const noQuotes = removeQuotes(`"my-component"`); // my-component
 const noQuotes = removeQuotes(`'my-component'`); // my-component
@@ -36,9 +36,9 @@ const noQuotes = removeQuotes(`'my-component'`); // my-component
 The `kebabCase` function converts a string to kebab-case.
 
 ```ts
-import { toKebabCase } from '@wc-toolkit/cem-utilities';
+import { toKebabCase } from "@wc-toolkit/cem-utilities";
 
-const kebab = toKebabCase('myComponent'); // my-component
+const kebab = toKebabCase("myComponent"); // my-component
 ```
 
 ## Sentence Case
@@ -46,9 +46,9 @@ const kebab = toKebabCase('myComponent'); // my-component
 The `toSentenceCase` function converts a string to sentence case.
 
 ```ts
-import { toSentenceCase } from '@wc-toolkit/cem-utilities';
+import { toSentenceCase } from "@wc-toolkit/cem-utilities";
 
-const sentence = toSentenceCase('myComponent'); // My component
+const sentence = toSentenceCase("myComponent"); // My component
 ```
 
 ## Pascal Case
@@ -56,9 +56,9 @@ const sentence = toSentenceCase('myComponent'); // My component
 The `toPascalCase` function converts a string to PascalCase.
 
 ```ts
-import { toPascalCase } from '@wc-toolkit/cem-utilities';
+import { toPascalCase } from "@wc-toolkit/cem-utilities";
 
-const pascal = toPascalCase('my-component'); // MyComponent
+const pascal = toPascalCase("my-component"); // MyComponent
 ```
 
 ## Camel Case
@@ -66,7 +66,7 @@ const pascal = toPascalCase('my-component'); // MyComponent
 The `toCamelCase` function converts a string to camelCase.
 
 ```ts
-import { toCamelCase } from '@wc-toolkit/cem-utilities';
+import { toCamelCase } from "@wc-toolkit/cem-utilities";
 
-const camel = toCamelCase('my-component'); // myComponent
+const camel = toCamelCase("my-component"); // myComponent
 ```
