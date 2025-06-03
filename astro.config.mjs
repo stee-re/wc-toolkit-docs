@@ -2,11 +2,9 @@
 import { defineConfig, passthroughImageService } from "astro/config";
 import starlight from "@astrojs/starlight";
 
-const googleAnalyticsId = "G-GQV41HQCLZ";
-
 // https://astro.build/config
 export default defineConfig({
-  site: "https://wc-toolkit.com",
+  site: "https://stee-re.github.io/wc-toolkit-docs/",
   integrations: [
     starlight({
       title: "Web Components Toolkit",
@@ -15,26 +13,9 @@ export default defineConfig({
         alt: "WC Toolkit Logo",
       },
       social: {
-        github: "https://github.com/orgs/wc-toolkit/repositories",
+        github: "https://github.com/orgs/ste-re/repositories",
       },
       head: [
-        // Adding google analytics
-        {
-          tag: "script",
-          attrs: {
-            src: `https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`,
-          },
-        },
-        {
-          tag: "script",
-          content: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', '${googleAnalyticsId}');
-          `,
-        },
       ],
       sidebar: [
         {
