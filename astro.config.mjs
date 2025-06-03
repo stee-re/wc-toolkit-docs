@@ -5,6 +5,7 @@ import starlight from "@astrojs/starlight";
 // https://astro.build/config
 export default defineConfig({
   site: "https://stee-re.github.io/wc-toolkit-docs/",
+  base: "/wc-toolkit-docs/",
   integrations: [
     starlight({
       title: "Web Components Toolkit",
@@ -15,8 +16,7 @@ export default defineConfig({
       social: {
         github: "https://github.com/orgs/ste-re/repositories",
       },
-      head: [
-      ],
+      head: [],
       sidebar: [
         {
           label: "Getting Started",
